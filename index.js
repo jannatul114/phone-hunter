@@ -7,7 +7,7 @@ const loadPhone = () => {
     const inputFiled = document.getElementById('inputFiled');
     const inputValue = inputFiled.value;
 
-    if (inputValue.length === 0 || typeof inputValue == ('number')) {
+    if (inputValue.length === 0) {
         warning.style.display = 'block';
     }
 
@@ -51,7 +51,6 @@ const displayPhone = (data) => {
             </div>
         `;
         PhoneParent.appendChild(div);
-        // const clearParentElement = document.getElementById('phone-parent').innerHTML = '';
     });
 }
 
@@ -67,33 +66,39 @@ const loadDetailse = (id) => {
 
 }
 
+/*============= show detailse ==============*/
 const showDetailse = (data) => {
-    let releaseDate = document.getElementById('release');
-    console.log(releaseDate);
-    if (releaseDate.innerText == null) {
-        releaseDate.innerText == 'no release date found'
-    }
+    const detailse = document.getElementById('detailse-parent').innerHTML = '';
+
     console.log(data);
     const detailseParent = document.getElementById('detailse-parent');
     const div = document.createElement('div');
 
     div.innerHTML = `
+    <div class="border border-primary rounded-3 p-3">
+    <div class="card mb-3 border-none" style="max-width: 640px;">
+    <div class="row g-0 p-3  ">
+      <div class="col-md-4 d-flex justify-content-center">
+        <img src="${data.data.image}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title text-primary fw-bold">${data.data.name}</h4>
+          <p class="card-text">${data.data.releaseDate ? data.data.releaseDate : 'No Release Date Found'}</p>
+          <p class="card-text fw-bold">${data.data.brand}</p>
+          <h5 class="fw-bold">Main features</h5>
+          <p class="card-text"><span class = "fw-bold">Memory: </span>${data.data.mainFeatures.memory}</p>
+          <p class="card-text"><span class = "fw-bold">Display-Size: </span> ${data.data.mainFeatures.displaySize}</p>
+          <p class="card-text"><span class = "fw-bold">Storage: </span> ${data.data.mainFeatures.storage}</p>
+          <p class="card-text"><span class = "fw-bold">ChipSet: </span> ${data.data.mainFeatures.chipSet ? data.data.mainFeatures.chipSet : 'No ChipSet found'}</p>
+        </div>
+        </div>
+    </div>
 
-    <div class = "border border-primary">
-    <div class = "d-flex justify-content-center align-items-center  p-3">
-        <div class = "d-flex justify-content-center me-2 ">
-            <img class = "w-50" src="${data.data.image}" class="card-img-top" alt="...">
-        </div>
-        
-        <div>
-        <h5 class = "text-primary">${data.data.name}</h5>
-        <h6><span id="release" class= "fw-bold">Release Date: </span>${data.data.releaseDate} </h6>
-        <h6><span class= "fw-bold"> </span>${data.data.brand} </h6>
-        </div>
-    <div>
-    <h5></h5>
+    <div class="border border-top-primary p-3 rounded-3">
+    <p class="card-text"><span class = "fw-bold">Display-Size: </span> ${data.data.mainFeatures.displaySize}</p>
     </div>
-    </div>
+  </div>
     </div>
  `;
     detailseParent.appendChild(div);
