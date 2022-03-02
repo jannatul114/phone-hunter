@@ -47,15 +47,16 @@ const displayPhone = (data) => {
                     <img class = "w-50" src="${phone.image}" class="card-img-top" alt="...">
                 </div>
                     <div class="card-body">
-                        <h5 class="card-title">${phone.phone_name}</h5>
-                        <p class="card-text">${phone.brand}</p>
+                        <h5 class="card-title text-center">${phone.phone_name}</h5>
+                        <p class="card-text text-center">${phone.brand}</p>
                     </div>
-                    <div class="card-footer bg-light d-flex justify-content-center">
+                    <div  class="card-footer bg-light d-flex justify-content-center">
                         <button onclick = "loadDetailse('${phone.slug}')" class = "btn btn-primary">Explaore</button>
                     </div>
                 </div>
             </div>
         `;
+
         PhoneParent.appendChild(div);
     });
 
@@ -75,66 +76,61 @@ const loadDetailse = (id) => {
 
 /*============= show detailse ==============*/
 const showDetailse = (data) => {
+    console.log(data);
     const detailse = document.getElementById('detailse-parent').innerHTML = '';
     const detailseParent = document.getElementById('detailse-parent');
     const div = document.createElement('div');
 
 
     div.innerHTML = `
-    <div class="container border-primary detailse-parent-div">
-    <h2 class="text-center text-primary">Detailse</h2>
-    <div class=" rounded-3 border-primary">
-        <div class="card mb-3 " style="max-width: 540px;">
-            <div class="row g-0 p-3 ">
-                <div class="col-md-4 d-flex justify-content-center">
-                    <img src="${data.data.image}" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h4 class="card-title text-primary fw-bold">${data.data.name}</h4>
-                        <p class="card-text">${data.data.releaseDate ? data.data.releaseDate : 'No Release Date Found'}
-                        </p>
-                        <p class="card-text fw-bold">${data.data.brand}</p>
-                        <h5 class="fw-bold">Main features</h5>
-                        <p class="card-text"><span class="fw-bold">Memory: </span>${data.data.mainFeatures.memory}</p>
-                        <p class="card-text"><span class="fw-bold">Display-Size: </span>
-                            ${data.data.mainFeatures.displaySize}</p>
-                        <p class="card-text"><span class="fw-bold">Storage: </span> ${data.data.mainFeatures.storage}
-                        </p>
-                        <p class="card-text"><span class="fw-bold">ChipSet: </span> ${data.data.mainFeatures.chipSet ?
-            data.data.mainFeatures.chipSet : 'No ChipSet found'}</p>
-                    </div>
-                </div>
-
-                <h3 class="card-title my-3 text-center">Other Features:</h3>
-                <div class="row g-2 d-flex-justify-content-center ">
-
-                    <div class="col-md-6 ">
-                        <div class="card-body">
-                            <p class="card-text"><span class="fw-bold">Bluetooth: </span> ${data.data.others.Bluetooth}
-                            </p>
-                            <p class="card-text"><span class="fw-bold">GPS: </span> ${data.data.others.GPS}</p>
-                            <p class="card-text"><span class="fw-bold">NFC: </span> ${data.data.others.NFC}</p>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card-body">
-                            <p class="card-text"><span class="fw-bold">Radio: </span> ${data.data.others.Radio}</p>
-                            <p class="card-text"><span class="fw-bold">USB: </span> ${data.data.others.USB}</p>
-                            <p class="card-text"><span class="fw-bold">WLAN: </span> ${data.data.others.WLAN}</p>
-                        </div>
-                    </div>
-
-                </div>
-                
-            </div>
-        </div>
-
+    <div class="row g-0 border border-primary p-4 border-2 rounded-3">
+    <div class="col-md-4">
+      <div class="d-flex justify-content-center">
+      <img src="${data.data.image}" class="img-fluid rounded-start" alt="...">
+      </div>
     </div>
+    <div class="col-md-8">
+      <div class="card-body ">
+        <h3 class="card-title text-primary fw-bold">${data.data.name}</h3>
+        <p class="card-text">${data.data.releaseDate ? data.data.releaseDate : 'No Release Date Found'}</p>
+        <p class="card-text fw-bold">${data.data.brand}</p>
+        <h4 class="fw-bold text-primary text-center">Main features</h4>
+        <p class="card-text"><span class="fw-bold">Memory: </span>${data.data.mainFeatures.memory}</p>
+         <p class="card-text"><span class="fw-bold">Display-Size: </span>${data.data.mainFeatures.displaySize}</p>
+        <p class="card-text "><span class="fw-bold">Storage: </span> ${data.data.mainFeatures.storage}</p>
+      </div>
+      
+    </div>
+    <div id="footer" class="card-footer bg-white border-top  border-primary mt-3">
+      <p class="card-text text-center "><span class="fw-bold">Sensors: </span> ${data.data.mainFeatures.sensors}</p>
 
-</div>
+      <div class="row g-2 d-flex-justify-content-center ">
+
+      <div class="col-md-6 ">
+          <div class="card-body">
+              <p class="card-text"><span class="fw-bold">Bluetooth: </span> ${data?.data?.others?.Bluetooth ? data.data.others.Bluetooth : 'not found'}
+              </p>
+              <p class="card-text"><span class="fw-bold">GPS: </span> ${data?.data?.others?.GPS ? data.data.others.GPS : 'not found'}</p>
+              <p class="card-text"><span class="fw-bold">NFC: </span> ${data?.data?.others?.NFC ? data.data.others.NFC : 'not found'}</p>
+          </div>
+
+      </div>
+      <div class="col-md-6">
+          <div class="card-body ">
+              <p class="card-text"><span class="fw-bold">Radio: </span> ${data?.data?.others?.Radio ? data.data.others.Radio : 'not found'}</p>
+              <p class="card-text"><span class="fw-bold">USB: </span> ${data?.data?.others?.USB ? data.data.others.USB : 'not found'}</p>
+              <p class="card-text"><span class="fw-bold">WLAN: </span> ${data?.data?.others?.WLAN ? data.data.others.WLAN : 'not found'}</p>
+          </div>
+      </div>
+
+  </div>
+      </div>
+
+      
+
+  </div>
  `;
+
     detailseParent.appendChild(div);
 }
 
