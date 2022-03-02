@@ -80,8 +80,12 @@ const showDetailse = (data) => {
     const div = document.createElement('div');
 
     div.innerHTML = `
+    <div class="border-primary border border-2 p-2 border-bottom-0">
     <h2 class="text-center text-primary fw-bold">Detailse</h2>
+    </div>
+
     <div class="row g-0 border border-primary p-4 border-2 rounded-3">
+    
     <div class="col-md-4">
       <div class="d-flex justify-content-center">
       <img src="${data.data.image}" class="img-fluid rounded-start" alt="...">
