@@ -1,7 +1,10 @@
 
 const warning = document.getElementById('warning');
 
+const spinner = document.getElementById('spinner');
+
 const loadPhone = () => {
+
     /*======== getting input value ========*/
     const detailse = document.getElementById('detailse-parent').textContent = '';
     const parentPhone = document.getElementById('phone-parent').innerHTML = '';
@@ -9,12 +12,13 @@ const loadPhone = () => {
     const inputValue = inputFiled.value;
 
     if (inputValue.length === 0) {
-        warning.style.display = 'block';
+        spinner.style.display = 'none';
         warning.innerText = '⚠️⚠️ Please inpute phone name'
 
     }
 
     else {
+        spinner.style.display = 'block';
         warning.style.display = 'none';
 
         /*============== fetching data ==============*/
@@ -24,12 +28,16 @@ const loadPhone = () => {
     }
 
     inputFiled.value = '';
+
 }
 
 /*============ displaying phone ============*/
 
 const displayPhone = (data) => {
+    spinner.style.display = 'none';
+    // spinner.style.display = 'block';
     if (data.length == 0) {
+        spinner.style.display = 'none';
         warning.style.display = 'block';
         warning.innerText = 'opps!! result not found 😔...'
     }
