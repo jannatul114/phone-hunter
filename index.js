@@ -1,6 +1,5 @@
 
 const warning = document.getElementById('warning');
-
 const spinner = document.getElementById('spinner');
 
 const loadPhone = () => {
@@ -15,7 +14,6 @@ const loadPhone = () => {
         spinner.style.display = 'none';
         warning.style.display = 'block';
         warning.innerText = '⚠️⚠️ Please inpute phone name'
-
     }
 
     else {
@@ -29,7 +27,6 @@ const loadPhone = () => {
     }
 
     inputFiled.value = '';
-
 }
 
 /*============ displaying phone ============*/
@@ -45,7 +42,6 @@ const displayPhone = (data) => {
 
     const first20 = data.slice(0, 20);
     first20.forEach(phone => {
-
         const PhoneParent = document.getElementById('phone-parent');
         const div = document.createElement('div');
         div.innerHTML = `
@@ -71,8 +67,6 @@ const displayPhone = (data) => {
 
 }
 
-
-
 /*========== detailse part ===========*/
 
 const loadDetailse = (id) => {
@@ -80,7 +74,6 @@ const loadDetailse = (id) => {
     fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
         .then(res => res.json())
         .then(data => showDetailse(data));
-
 }
 
 /*============= show detailse ==============*/
@@ -89,7 +82,6 @@ const showDetailse = (data) => {
     const detailse = document.getElementById('detailse-parent').innerHTML = '';
     const detailseParent = document.getElementById('detailse-parent');
     const div = document.createElement('div');
-
 
     div.innerHTML = `
     <div class="row g-0 border border-primary p-4 border-2 rounded-3">
@@ -134,12 +126,8 @@ const showDetailse = (data) => {
 
   </div>
       </div>
-
-      
-
   </div>
  `;
-
     detailseParent.appendChild(div);
 }
 

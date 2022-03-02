@@ -27,17 +27,18 @@
             <div class="my-3">
 
                 <div class="w-100">
+                    <!-- input part -->
                     <h1 class="text-center">Search Phone</h1>
-
                     <div class="input-group w-100 mb-3">
                         <input id="inputFiled" type="text" class="form-control" placeholder="Phone name"
                             aria-label="Recipient's username" aria-describedby="button-addon2">
                         <button onclick="loadPhone()" class="btn btn-outline-primary" type="button"
                             id="button-addon2">Search</button>
                     </div>
-
+                    <!-- warning -->
                     <h4 id="warning" class="text-center"></h4>
 
+                    <!-- spinner -->
                     <div class="d-flex justify-content-center align-items-center mt-4">
                         <div id="spinner" class="spinner-border text-primary" role="status">
                             <span class="visually-hidden">Loading...</span>
@@ -45,27 +46,24 @@
                     </div>
                 </div>
 
-
             </div>
         </div>
     </div>
     <div id="main-div" class="container ">
-
         <div class="d-flex justify-content-center">
+            <!-- detailse part -->
             <div style="border: none;" class="card" id="detailse-parent">
             </div>
-
         </div>
 
+        <!-- serching result part -->
         <div id="phone-parent" class="row row-cols-1 row-cols-md-3 g-4 my-4">
-
-
         </div>
     </div>
 
-
     <!-- script file link -->
     <script src="index.js"></script>
+
 </body>
 
 </html>
