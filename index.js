@@ -13,7 +13,7 @@ const loadPhone = () => {
     if (inputValue.length === 0) {
         spinner.style.display = 'none';
         warning.style.display = 'block';
-        warning.innerText = '⚠️⚠️ Please inpute phone name'
+        warning.innerText = '⚠️⚠️ Please inpute phone name';
     }
 
     else {
@@ -33,7 +33,6 @@ const loadPhone = () => {
 
 const displayPhone = (data) => {
     spinner.style.display = 'none';
-    // spinner.style.display = 'block';
     if (data.length == 0) {
         spinner.style.display = 'none';
         warning.style.display = 'block';
@@ -47,13 +46,13 @@ const displayPhone = (data) => {
         div.innerHTML = `
 
         <div class="col">
-                <div class="card h-100 border-none shadow">
+                <div class="card h-100 border-white shadow">
                 <div class = "d-flex justify-content-center align-items-center my-3">
                     <img class = "w-50" src="${phone.image}" class="card-img-top" alt="...">
                 </div>
                     <div class="card-body">
-                        <h5 class="card-title text-center">${phone.phone_name}</h5>
-                        <p class="card-text text-center">${phone.brand}</p>
+                        <h5 class="card-title text-center text-secondary">${phone.phone_name}</h5>
+                        <p class="card-text text-center fw-bold">${phone.brand}</p>
                     </div>
                     <div class="card-footer bg-white d-flex justify-content-center">
                         <a href="#detailse-parent"><button onclick = "loadDetailse('${phone.slug}')" class = "btn btn-primary">Explaore</button></a>
@@ -61,10 +60,8 @@ const displayPhone = (data) => {
                 </div>
             </div>
         `;
-
         PhoneParent.appendChild(div);
     });
-
 }
 
 /*========== detailse part ===========*/
@@ -78,12 +75,12 @@ const loadDetailse = (id) => {
 
 /*============= show detailse ==============*/
 const showDetailse = (data) => {
-    console.log(data);
     const detailse = document.getElementById('detailse-parent').innerHTML = '';
     const detailseParent = document.getElementById('detailse-parent');
     const div = document.createElement('div');
 
     div.innerHTML = `
+    <h1 class="text-center text-primary fw-bold">Detailse</h1>
     <div class="row g-0 border border-primary p-4 border-2 rounded-3">
     <div class="col-md-4">
       <div class="d-flex justify-content-center">
@@ -92,7 +89,7 @@ const showDetailse = (data) => {
     </div>
     <div class="col-md-8">
       <div class="card-body ">
-        <h2 class="card-title text-primary fw-bold">${data.data.name}</h2>
+        <h3 class="card-title text-primary fw-bold">${data.data.name}</h3>
         <p class="card-text">${data.data.releaseDate ? data.data.releaseDate : 'No Release Date Found'}</p>
         <p class="card-text fw-bold">${data.data.brand}</p>
         <h5 class="fw-bold text-primary">Main features</h5>
