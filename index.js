@@ -13,6 +13,7 @@ const loadPhone = () => {
 
     if (inputValue.length === 0) {
         spinner.style.display = 'none';
+        warning.style.display = 'block';
         warning.innerText = '⚠️⚠️ Please inpute phone name'
 
     }
