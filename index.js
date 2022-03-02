@@ -80,7 +80,7 @@ const showDetailse = (data) => {
     const div = document.createElement('div');
 
     div.innerHTML = `
-    <h1 class="text-center text-primary fw-bold">Detailse</h1>
+    <h2 class="text-center text-primary fw-bold">Detailse</h2>
     <div class="row g-0 border border-primary p-4 border-2 rounded-3">
     <div class="col-md-4">
       <div class="d-flex justify-content-center">
